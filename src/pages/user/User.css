@@ -1,0 +1,18 @@
+.user-center {
+    max-width: 700px;
+    padding: 1rem;
+    /* margin: 2rem auto; */
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.user-center>h2 {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .user-center {
+        max-width: 700px;
+        padding: 2rem;
+        margin: 2rem auto;
+    }
+}

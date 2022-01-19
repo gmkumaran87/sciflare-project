@@ -5,9 +5,7 @@ const uiSlice = createSlice({
     initialState: { message: null, status: null, isLoading: false, user: [] },
     reducers: {
         loadUser(state, action) {
-            const { countUrl, userUrl } = action.payload;
-            state.user = userUrl;
-            state.countUrl = countUrl;
+            state.user = action.payload.user;
         },
         showNotification(state, action) {
             console.log("Before update uiSlice");

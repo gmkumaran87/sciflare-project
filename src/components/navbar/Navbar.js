@@ -1,7 +1,17 @@
 import React from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../../store/auth-slice";
+
 const Navbar = () => {
+  const { isNavBar } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  const handleLogout = (e) => {
+    dispatch(authActions.logout());
+  };
   return (
     <nav>
       <div className="nav-left">
@@ -15,12 +25,23 @@ const Navbar = () => {
               Add User
             </NavLink>
           </li>
-          <li>
-            <NavLink className="link" to="/login">
-              Login
-            </NavLink>
-          </li>
-          <li>Register</li>
+          {!isNavBar && (
+            <li>
+              <NavLink className="link" to="/login" onClick={handleLogout}>
+                Logout
+              </NavLink>
+            </li>
+          )}
+          {isNavBar && (
+            <>
+              <li>
+                <NavLink className="link" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li>Register</li>
+            </>
+          )}
         </ul>
       </div>
     </nav>
