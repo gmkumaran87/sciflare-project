@@ -16,4 +16,5 @@ const deleteUser = async(id) => {
     const result = await axios.delete(`${API_URL}/${id}`);
     return result;
 };
-export { getAllUsers, createUser, deleteUser };
+const addUser = async(obj) => await axios.post(`${API_URL}`, obj);
+export { getAllUsers, createUser, deleteUser, addUser };

@@ -1,7 +1,7 @@
 // import { authActions } from "../store/auth-slice";
 import { uiActions } from "../store/ui-slice";
 
-import { getAllUsers, deleteUser } from "../services/user.service";
+import { getAllUsers, deleteUser, addUser } from "../services/user.service";
 
 const getUsers = async() => {
     return async(dispatch) => {
@@ -9,8 +9,20 @@ const getUsers = async() => {
             console.log("Inside UserActions");
             const result = await getAllUsers();
             console.log(result);
+            dispatch(
+                uiActions.showNotification({
+                    status: "success",
+                    message: "User received successfully",
+                })
+            );
         } catch (error) {
             console.log(error);
+            dispatch(
+                uiActions.showNotification({
+                    status: "error",
+                    message: "Something went wrong..",
+                })
+            );
         }
     };
 };
@@ -34,4 +46,26 @@ const userDelete = (id) => {
         }
     };
 };
-export { getUsers, userDelete };
+const userAdd = (obj) => {
+    return async(dispatch) => {
+        try {
+            const result = await addUser(obj);
+            if (result.status === 200) {
+                dispatch(
+                    uiActions.showNotification({
+                        status: "success",
+                        message: "User added successfully",
+                    })
+                );
+            }
+        } catch (error) {
+            dispatch(
+                uiActions.showNotification({
+                    status: "error",
+                    message: "Something went wrong..",
+                })
+            );
+        }
+    };
+};
+export { getUsers, userDelete, userAdd };

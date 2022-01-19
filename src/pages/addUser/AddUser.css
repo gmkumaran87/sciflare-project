@@ -1,0 +1,59 @@
+.add-user {
+    width: 100%;
+    /* max-width: 700px; */
+    font-family: 'Josefin Sans', sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.add-user>h2 {
+    font-size: 1rem;
+}
+
+.addUser-form {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+.form-group {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.form-group>label {
+    margin-bottom: 6px;
+}
+
+.form-group>input {
+    border: 1px solid rgb(150, 146, 146);
+    border-radius: 4px;
+    font-family: inherit;
+    color: rgba(0, 0, 0, 0.8);
+    padding: .35rem;
+    letter-spacing: 2px;
+    width: 200px;
+}
+
+@media (min-width: 768px) {
+    .add-user {
+        padding-top: 2rem;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: calc(100vh - 56px);
+    }
+    .add-user>h2 {
+        font-size: 1.75rem;
+        font-weight: 100;
+    }
+}
