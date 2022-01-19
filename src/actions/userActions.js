@@ -1,7 +1,7 @@
 // import { authActions } from "../store/auth-slice";
 import { uiActions } from "../store/ui-slice";
 
-import { getAllUsers, createUser, deleteUser } from "../services/user.service";
+import { getAllUsers, deleteUser } from "../services/user.service";
 
 const getUsers = async() => {
     return async(dispatch) => {

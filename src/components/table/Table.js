@@ -1,7 +1,7 @@
 import React from "react";
 import "./Table.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { deleteUser } from "../../services/user.service";
+
 import { useSelector, useDispatch } from "react-redux";
 import { userDelete } from "../../actions/userActions";
 
